@@ -31,13 +31,14 @@ csvSurvey =csv.reader( surveyFile )
 surveyDataList = list( csvSurvey )
 surveyFile.close()
 
-tmp = [row for row in surveyDataList if row[0] == 'name']
+tmp = [row for row in surveyDataList if len(row)>0 and row[0] == 'name']
 headerRow = tmp[0]
 surveyDataList = [row for row in surveyDataList if row != headerRow]
 
 strFull = ''
 for row in surveyDataList:
-	strFull = strFull + '\n' + row[entryCol]
+	if len(row) > entryCol:
+		strFull = strFull + '\n' + row[entryCol]
 #print( strFull )
 
 # what name to use for output files
