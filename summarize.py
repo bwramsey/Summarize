@@ -26,7 +26,7 @@ surveyFilename = fileList[int(indxA)-1]
 print(surveyFilename)
 
 # open the survey csv file exported from Carmen, attach it to a reader, and read it into a list
-surveyFile = open(surveyFilename, 'r')
+surveyFile = open(surveyFilename, 'r', encoding="utf-8")
 csvSurvey =csv.reader( surveyFile )
 surveyDataList = list( csvSurvey )
 surveyFile.close()
